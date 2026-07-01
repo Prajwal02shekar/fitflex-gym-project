@@ -31,23 +31,41 @@ const Login = () => {
   }
 
   return (
-    <section className='auth-page'>
-      <div>
-        <h3>Login</h3>
-        <p>Login to manage all memebers and payments</p>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Enter Email</label>
-        <input type="email" id='email' name='email' placeholder='You@gmail.com' onChange={(e) => { setEmail(e.target.value) }} /><br /><br />
-        <label htmlFor="password">Enter Password</label>
-        <input type="password" id='password' name='password' placeholder='*************' onChange={(e) => { setPassword(e.target.value) }} /><br /><br />
+    <section className="auth-page">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        <p className="auth-sub">Sign in to manage members and payments</p>
 
-        <button type='submit'>Submit</button>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="**********"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button type="submit" > Login</button>
+
+        <p className="auth-switch">
+          New here? <Link to="/register">Create an account</Link>
+        </p>
+
+        <p className="auth-hint">
+          Demo login — admin@fitflex.com / admin123
+        </p>
       </form>
-
-      <div>
-        <h3>Dont'have an Account ? Create Account <Link to='/register'>Register</Link></h3>
-      </div>
     </section>
   )
 }

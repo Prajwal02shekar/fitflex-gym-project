@@ -51,36 +51,63 @@ const Register = () => {
 
   }
   return (
-    <section className='auth-page'>
-      <div>
-        <h3>Create Account</h3>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Enter Username</label>
-        <input type="text" id='username' name='username' placeholder='Your Name' onChange={handleChange} /><br /><br />
-        <label htmlFor="email">Enter Email</label>
-        <input type="email" id='email' name='email' placeholder='You@gmail.com' onChange={handleChange} /><br /><br />
-        <label htmlFor="password">Enter Password</label>
-        <input type="password" id='password' name='password' placeholder='*************' onChange={handleChange} /><br /><br />
-        <label htmlFor="phNum">Enter ph number</label>
-        <input type="tel" id='phNum' name='phNum' placeholder='10 digit number' onChange={handleChange} minLength={10} maxLength={10} /><br /><br />
-        <label htmlFor="age">Enter Age</label>
-        <input type="number" id='age' name='age' placeholder='Your Age' onChange={handleChange} /><br /><br />
-        <label htmlFor="gender">Select Gender</label>
-        &nbsp;&nbsp;
-        <input type="radio" name="gender" id="gender" value="Male" onChange={handleChange} />Male
-        &nbsp;&nbsp;
-        <input type="radio" name="gender" id="gender" value="Female" onChange={handleChange} />Female
-        &nbsp;&nbsp;
-        <input type="radio" name="gender" id="gender" value="Others" onChange={handleChange} />Others
-        &nbsp;&nbsp;
-        <br /><br />
-        <button type='submit'>Submit</button>
-      </form>
+     <section className="auth-page">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2>Create Account</h2>
+        <p className="auth-sub">Staff &amp; front-desk access for FitFlex</p>
 
-      <div>
-        <h3>Already Have an Account? <Link to='/login'>Login</Link></h3>
-      </div>
+        <label htmlFor="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          placeholder="Your name"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="••••••••"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="phone">Phone</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          minLength={10}
+          maxLength={10}
+          placeholder="10-digit number"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+        />
+
+        <button type="submit">Register</button>
+
+        <p className="auth-switch">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </form>
     </section>
   )
 }
