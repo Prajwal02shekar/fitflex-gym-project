@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.navbarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    background-color: black;
+}
+
+.navbarContainer .logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo .logo-icon {
+    font-size: 22px;
+}
+
+.logo .logo-text {
+    color: azure;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu a {
+    color: azure;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    transition: color 0.3s border-bottom 0.3s;
+}
+
+.menu a:hover {
+    color: coral;
+    border-bottom: 1px solid azure;
+}
