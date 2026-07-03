@@ -1,125 +1,244 @@
+/* ===========================
+   Global CSS
+=========================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-body {
-    background-color: #f4f5f7;
-}
 
-/* Navbar CSS */
+
+/* ===========================
+   Navbar
+=========================== */
+
 .navbarContainer {
+    width: 100%;
+    background: #111827;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    background: #14161f;
-    padding: 14px 32px;
-    flex-wrap: wrap;
-    gap: 12px;
+    align-items: center;
+    padding: 18px 40px;
+    border-bottom: 1px solid #1f2937;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #fff;
-    font-weight: 800;
-    font-size: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .logo-text {
-    color: #ff6b35;
+    color: coral;
 }
 
 .menu {
     display: flex;
-    align-items: center;
-    gap: 22px;
-    flex-wrap: wrap;
+    gap: 25px;
 }
 
 .menu a {
     text-decoration: none;
-    color: #cbd0dc;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 6px 2px;
-    border-bottom: 2px solid transparent;
-    transition: color 0.15s, border-color 0.15s;
+    color: #cbd5e1;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
 .menu a:hover,
 .menu a.active {
-    color: #fff;
-    border-bottom-color: var(--accent);
+    color: coral;
 }
 
-/* Login and Register CSS */
+.userData {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.userData span {
+    color: white;
+    font-weight: 500;
+}
+
+.userData button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #ef4444;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.userData button:hover {
+    background: #dc2626;
+}
+
+/* ===========================
+   Login & Register
+=========================== */
+
 .auth-page {
     display: flex;
     justify-content: center;
-    padding: 60px 20px;
+    align-items: center;
+    min-height: 90vh;
+    padding: 20px;
 }
 
 .auth-form {
-    background: white;
-    padding: 36px;
-    border-radius: 14px;
     width: 100%;
-    max-width: 380px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    display: flex;
-    flex-direction: column;
+    max-width: 420px;
+    background: #1e293b;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
 }
 
 .auth-form h2 {
-    margin: 0 0 4px;
+    margin-bottom: 8px;
 }
 
 .auth-sub {
-    color: #6b7280;
-    font-size: 13.5px;
-    margin: 0 0 20px;
+    color: #94a3b8;
+    margin-bottom: 20px;
 }
 
 .auth-form label {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    margin-top: 14px;
+    display: block;
+    margin: 15px 0 6px;
+    color: white;
+    font-weight: 500;
 }
 
 .auth-form input,
 .auth-form select {
-    padding: 10px 12px;
-    border: 1px solid #e5e7eb;
+    width: 100%;
+    padding: 12px;
+    background: #0f172a;
+    color: white;
+    border: 1px solid #334155;
     border-radius: 8px;
-    font-size: 14px;
+    outline: none;
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+    border-color: #3b82f6;
 }
 
 .auth-form button {
-    margin-top: 22px;
-    background: #ff6b35;
-    padding: 11px;
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
 }
 
-.auth-switch {
-    margin-top: 16px;
-    font-size: 13px;
+.auth-form button:hover {
+    background: #2563eb;
+}
+
+.auth-switch,
+.auth-hint {
     text-align: center;
-    color: #6b7280;
+    margin-top: 15px;
+    color: #94a3b8;
 }
 
 .auth-switch a {
-    color: #e85a2a;
-    font-weight: 600;
+    color: #3b82f6;
+    text-decoration: none;
 }
 
-.auth-hint {
-    margin-top: 10px;
-    font-size: 11.5px;
-    text-align: center;
-    color: #9ca3af;
+/* ===========================
+   Home Page
+=========================== */
+
+.homepage-container {
+    padding: 30px;
+    min-height: 100vh;
+}
+
+.homepage {
+    margin-bottom: 30px;
+}
+
+.homepage h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.homepage p {
+    color: #94a3b8;
+    font-size: 17px;
+}
+
+/* ===========================
+   Dashboard Cards
+=========================== */
+
+.card1-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.cards {
+    flex: 1;
+    min-width: 240px;
+    background: #1e293b;
+    border-radius: 18px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 160px;
+    transition: .3s;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,.3);
+}
+
+.cards:hover {
+    transform: translateY(-6px);
+}
+
+.cards:nth-child(1) {
+    border-left: 6px solid #3b82f6;
+}
+
+.cards:nth-child(2) {
+    border-left: 6px solid #22c55e;
+}
+
+.cards:nth-child(3) {
+    border-left: 6px solid #f59e0b;
+}
+
+.card-number {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+}
+
+.card-text {
+    margin-top: 8px;
+    color: #94a3b8;
+    font-size: 18px;
 }

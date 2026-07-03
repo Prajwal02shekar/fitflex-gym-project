@@ -1,7 +1,20 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+    let navigate=useNavigate()
+
+    let user = JSON.parse(localStorage.getItem('user'))
+    console.log(user)
+
+
+    let handleLogout=()=>{
+        localStorage.removeItem('user')
+        navigate('/login')
+        setTimeout(()=>{
+            window.location.reload()
+        },100)
+    }
     return (
         <nav className="navbarContainer">
             <aside className="logo">
@@ -13,8 +26,21 @@ const Navbar = () => {
                 <NavLink to='/members'>Members</NavLink>
                 <NavLink to='/payment'>Payment History</NavLink>
                 <NavLink to='/personTraining'>PT Requests</NavLink>
-                <NavLink to='/login'>Login</NavLink>
-                <NavLink to='/register'>Register</NavLink>
+
+                {
+                    user ? (
+                        <div className='userData'>
+                            <span>Hai, {user.username}</span>
+                            <button onClick={handleLogout}>Logout</button>
+                        </div>
+                    ) : (
+                        <>
+                            <NavLink to='/login'>Login</NavLink>
+                            <NavLink to='/register'>Register</NavLink>
+                        </>
+                    )
+                }
+
             </aside>
         </nav>
     )
