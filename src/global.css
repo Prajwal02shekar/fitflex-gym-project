@@ -1,6 +1,3 @@
-/* ===========================
-   Global CSS
-=========================== */
 
 * {
     margin: 0;
@@ -10,10 +7,13 @@
         Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-
+body {
+    background: #efefef;
+    color: #1e293b;
+}
 
 /* ===========================
-   Navbar
+   Navbar (dark)
 =========================== */
 
 .navbarContainer {
@@ -26,7 +26,6 @@
     border-bottom: 1px solid #1f2937;
     position: sticky;
     top: 0;
-    z-index: 1000;
 }
 
 .logo {
@@ -51,7 +50,6 @@
     text-decoration: none;
     color: #cbd5e1;
     font-size: 16px;
-    transition: 0.3s;
 }
 
 .menu a:hover,
@@ -73,11 +71,10 @@
 .userData button {
     padding: 8px 18px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #ef4444;
     color: white;
     cursor: pointer;
-    transition: .3s;
 }
 
 .userData button:hover {
@@ -85,7 +82,7 @@
 }
 
 /* ===========================
-   Login & Register
+   Login & Register (light)
 =========================== */
 
 .auth-page {
@@ -94,48 +91,80 @@
     align-items: center;
     min-height: 90vh;
     padding: 20px;
+    background: #f8fafc;
 }
 
 .auth-form {
     width: 100%;
     max-width: 420px;
-    background: #1e293b;
+    background: #ffffff;
     padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
 }
 
 .auth-form h2 {
     margin-bottom: 8px;
-    color: #ffffff;
+    color: #0f172a;
 }
 
 .auth-sub {
-    color: #ffffff;
+    color: #64748b;
     margin-bottom: 20px;
+    font-size: 14px;
 }
 
 .auth-form label {
     display: block;
     margin: 15px 0 6px;
-    color: white;
+    color: #334155;
     font-weight: 500;
+    font-size: 14px;
 }
 
 .auth-form input,
 .auth-form select {
     width: 100%;
     padding: 12px;
-    background: #0f172a;
-    color: white;
-    border: 1px solid #334155;
-    border-radius: 8px;
+    background: #f8fafc;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
     outline: none;
+    font-size: 15px;
+}
+
+.auth-form input::placeholder {
+    color: #94a3b8;
 }
 
 .auth-form input:focus,
 .auth-form select:focus {
     border-color: #3b82f6;
+    background: #ffffff;
+}
+
+/* Gender radio group */
+.auth-form input[type="radio"] {
+    width: auto;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.gender-group {
+    display: flex;
+    gap: 18px;
+    margin-top: 6px;
+}
+
+.gender-group label {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .auth-form button {
@@ -145,14 +174,19 @@
     background: #3b82f6;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
-    transition: .3s;
+    font-weight: 600;
 }
 
 .auth-form button:hover {
     background: #2563eb;
+}
+
+.auth-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .auth-switch,
@@ -160,6 +194,14 @@
     text-align: center;
     margin-top: 15px;
     color: #94a3b8;
+    font-size: 14px;
+}
+
+.auth-hint {
+    font-size: 12.5px;
+    border-top: 1px solid #334155;
+    padding-top: 14px;
+    margin-top: 20px;
 }
 
 .auth-switch a {
@@ -167,13 +209,18 @@
     text-decoration: none;
 }
 
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
 /* ===========================
-   Home Page
+   Home Page (light)
 =========================== */
 
 .homepage-container {
     padding: 30px;
     min-height: 100vh;
+    background: #f8fafc;
 }
 
 .homepage {
@@ -181,17 +228,18 @@
 }
 
 .homepage h1 {
-    font-size: 38px;
+    font-size: 34px;
     margin-bottom: 10px;
+    color: #0f172a;
 }
 
 .homepage p {
-    color: #94a3b8;
-    font-size: 17px;
+    color: #64748b;
+    font-size: 16px;
 }
 
 /* ===========================
-   Dashboard Cards
+   Dashboard Cards (light)
 =========================== */
 
 .card1-container {
@@ -204,67 +252,58 @@
 .cards {
     flex: 1;
     min-width: 240px;
-    background: #1e293b;
-    border-radius: 18px;
+    background: #ffffff;
+    border-radius: 10px;
     padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 160px;
-    transition: .3s;
+    height: 150px;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
-}
-
-.cards:hover {
-    transform: translateY(-6px);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
 }
 
 .cards:nth-child(1) {
-    border-left: 6px solid #3b82f6;
+    border-left: 4px solid #3b82f6;
 }
 
 .cards:nth-child(2) {
-    border-left: 6px solid #22c55e;
+    border-left: 4px solid #22c55e;
 }
 
 .cards:nth-child(3) {
-    border-left: 6px solid #f59e0b;
+    border-left: 4px solid #f59e0b;
 }
 
 .card-number {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
-    color: white;
+    color: #0f172a;
 }
 
 .card-text {
     margin-top: 8px;
-    color: #94a3b8;
-    font-size: 18px;
+    color: #64748b;
+    font-size: 16px;
 }
 
 /* ===========================
-   Membership Details
+   Membership Details (light)
 =========================== */
 
 .card2-container {
     width: 100%;
     padding: 30px;
-    background: #1b1f27;
+    background: #f1f5f9;
 }
 
 .card2-container>h2 {
     text-align: center;
-    color: #ffffff;
-    font-size: 32px;
+    color: #0f172a;
+    font-size: 28px;
     margin-bottom: 30px;
-    letter-spacing: 1px;
 }
-
-/* ===========================
-   Cards Container
-=========================== */
 
 .card2-cards {
     display: flex;
@@ -273,51 +312,28 @@
     flex-wrap: wrap;
 }
 
-/* ===========================
-   Individual Card
-=========================== */
-
 .card2-cards .card {
     width: 320px;
-    background: #2a2f3a;
-    border: 1px solid #3b4252;
-    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
     padding: 25px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
-    transition: .3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
 }
-
-.card2-cards .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, .45);
-    border-color: #2563eb;
-}
-
-/* ===========================
-   Card Heading
-=========================== */
 
 .card2-cards .card h2 {
-    color: #ffffff;
+    color: #0f172a;
     text-align: center;
     margin-bottom: 18px;
-    font-size: 28px;
+    font-size: 24px;
 }
-
-/* ===========================
-   Fee
-=========================== */
 
 .card2-cards .card h4 {
     text-align: center;
-    color: #4ade80;
-    font-size: 22px;
+    color: #16a34a;
+    font-size: 20px;
     margin-bottom: 20px;
 }
-
-/* ===========================
-   List
-=========================== */
 
 .card2-cards .card ul {
     list-style: none;
@@ -325,10 +341,10 @@
 }
 
 .card2-cards .card ul li {
-    color: #d1d5db;
+    color: #334155;
     padding: 10px 0;
-    border-bottom: 1px solid #3b4252;
-    font-size: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 15px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -340,18 +356,19 @@
 
 .card2-cards .card ul li::before {
     content: "✔";
-    color: #22c55e;
+    color: #16a34a;
     font-weight: bold;
 }
 
 /* ===========================
-   Members Page
+   Members Page (light)
 =========================== */
 
 .members-container {
     width: 100%;
     min-height: 100vh;
     padding: 30px;
+    background: #f8fafc;
 }
 
 .members-header {
@@ -363,16 +380,14 @@
 
 .members-header h2 {
     color: #2563eb;
-    font-size: 32px;
-    letter-spacing: 1px;
+    font-size: 28px;
 }
 
 .members-header button {
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #2563eb;
     overflow: hidden;
-    transition: 0.3s;
 }
 
 .members-header button:hover {
@@ -387,10 +402,6 @@
     font-weight: 600;
 }
 
-/* ===========================
-   Cards Container
-=========================== */
-
 .member-card-container {
     display: flex;
     flex-wrap: wrap;
@@ -398,72 +409,50 @@
     justify-content: center;
 }
 
-/* ===========================
-   Member Card
-=========================== */
-
 .member-card {
     width: 340px;
-    background: #2a2f3a;
-    border: 1px solid #3d4554;
-    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
     overflow: hidden;
-    transition: .3s;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
 }
-
-.member-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, .45);
-}
-
-/* ===========================
-   Card Details
-=========================== */
 
 .member-card-top {
     padding: 20px;
 }
 
+.member-card-top h2,
 .member-card-top h3 {
-    color: #ffffff;
+    color: #0f172a;
     margin-bottom: 12px;
     font-size: 20px;
 }
 
-.member-card-top h4 {
-    color: #c7ced9;
+.member-card-top h5 {
+    color: #475569;
     margin-bottom: 10px;
     font-size: 15px;
     font-weight: 500;
 }
-
-/* ===========================
-   Buttons
-=========================== */
 
 .member-card-buttons {
     padding: 18px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    background: #222831;
-    border-top: 1px solid #3d4554;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
 }
 
 .member-card-buttons button {
     border: none;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 6px;
     color: white;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    transition: .3s;
-}
-
-.member-card-buttons button:hover {
-    transform: scale(1.05);
 }
 
 /* Pay */
@@ -486,17 +475,18 @@
     background: #dc2626;
 }
 
-
 .loadingState,
 .member-card-container p {
-    color: white;
-    font-size: 22px;
+    color: #334155;
+    font-size: 20px;
     text-align: center;
     width: 100%;
     margin-top: 40px;
 }
 
-
+/* ===========================
+   Member Form Page (light)
+=========================== */
 
 .member-page {
     display: flex;
@@ -504,35 +494,36 @@
     align-items: center;
     min-height: 90vh;
     padding: 20px;
-    background: #0f172a;
+    background: #f8fafc;
 }
 
 .member-form {
     width: 100%;
     max-width: 480px;
-    background: #1e293b;
+    background: #ffffff;
     padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
 }
 
 .member-form h2 {
     margin-bottom: 8px;
-    color: white;
+    color: #0f172a;
     text-align: center;
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .member-sub {
     text-align: center;
-    color: #94a3b8;
+    color: #64748b;
     margin-bottom: 25px;
 }
 
 .member-form label {
     display: block;
     margin: 15px 0 6px;
-    color: white;
+    color: #334155;
     font-weight: 500;
 }
 
@@ -540,24 +531,23 @@
 .member-form select {
     width: 100%;
     padding: 12px;
-    background: #0f172a;
-    color: white;
-    border: 1px solid #334155;
-    border-radius: 8px;
+    background: #f8fafc;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
     outline: none;
     font-size: 15px;
-    transition: 0.3s;
 }
 
 .member-form input:focus,
 .member-form select:focus {
     border-color: #3b82f6;
-    box-shadow: 0 0 8px rgba(59, 130, 246, 0.35);
+    background: #ffffff;
 }
 
 .member-form input[readonly] {
-    background: #172554;
-    color: #93c5fd;
+    background: #dbeafe;
+    color: #1d4ed8;
     cursor: not-allowed;
     font-weight: 600;
 }
@@ -569,23 +559,16 @@
     background: #3b82f6;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    transition: 0.3s;
 }
 
 .member-form button:hover {
     background: #2563eb;
-    transform: translateY(-2px);
-}
-
-.member-form button:active {
-    transform: scale(0.98);
 }
 
 .member-form input::placeholder {
-    color: #64748b;
+    color: #94a3b8;
 }
-

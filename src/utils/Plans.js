@@ -21,6 +21,6 @@ export const PLANS = [
 
 export function feeForPlan(planName) {
     let plan = PLANS.find((p) => p.name === planName)
-    return plan 
+    return plan ? plan.fee : 0;
 }
 

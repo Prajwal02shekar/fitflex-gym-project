@@ -10,7 +10,7 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
-    phNum: "",
+    phone: "",
     age: "",
     gender: ""
   })
@@ -51,7 +51,7 @@ const Register = () => {
 
   }
   return (
-     <section className="auth-page">
+    <section className="auth-page">
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Create Account</h2>
         <p className="auth-sub">Staff &amp; front-desk access for FitFlex</p>
@@ -101,6 +101,22 @@ const Register = () => {
           onChange={handleChange}
           required
         />
+        <label htmlFor="age">Age</label>
+        <input
+          id="age"
+          name="age"
+          type="number"
+          placeholder="Your Age"
+          value={formData.age}
+          onChange={handleChange}
+          required
+        />
+        <div className="gender-group">
+          <label><input type="radio" name="gender" onChange={handleChange} value="Male" /> Male</label>
+          <label><input type="radio" name="gender" onChange={handleChange} value="Female" /> Female</label>
+          <label><input type="radio" name="gender" onChange={handleChange} value="Others" /> Others</label>
+        </div>
+
 
         <button type="submit">Register</button>
 

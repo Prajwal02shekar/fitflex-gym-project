@@ -26,13 +26,13 @@ const CreateMember = () => {
 
         try {
             let totalFee = feeForPlan(formData.memberPlan);
-            let amount = Number(formData.amountPaid);
+            let amountPaid = Number(formData.amountPaid);
 
             console.log(totalFee)
-            console.log(amount)
+            console.log(amountPaid)
 
             let newMember = await axios.post('http://localhost:3000/members', {
-                memeberName: formData.memberName,
+                memberName: formData.memberName,
                 memberPlan: formData.memberPlan,
                 totalFee,
                 amountPaid,
@@ -45,7 +45,7 @@ const CreateMember = () => {
                     memberName: formData.memberName,
                     type: "Payment",
                     description: "Initial Payment",
-                    amountPaid: formData.amountPaid,
+                    amount: amountPaid,
                     transaction: new Date().toLocaleString()
                 })
             }
@@ -59,7 +59,7 @@ const CreateMember = () => {
             setTimeout(() => {
                 navigate('/members')
             }, 1000)
-        } catch(err) {
+        } catch (err) {
             console.log(err)
             toast.error("Server Busy")
         }
@@ -98,7 +98,7 @@ const CreateMember = () => {
                 <input
                     type="number"
                     id="totalFee"
-                    value={selectedPlan.fee}
+                    value={selectedPlan}
                     readOnly
                 />
 
