@@ -11,5 +11,17 @@
       "id": "CKao47cuhug"
     }
   ],
+  "members": [
+    {
+      "id": 101,
+      "memberName": "Dishanth",
+      "memberPlan": "Basic",
+      "totalFee": 1000,
+      "amountPaid": 700,
+      "joinedOn": "03/07/2025"
+    }
+  ],
+  "payments":[],
+  
   "$schema": "./node_modules/json-server/schema.json"
 }

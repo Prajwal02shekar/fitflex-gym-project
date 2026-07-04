@@ -15,3 +15,12 @@ export const PLANS = [
         details: ['Everything in Premium', 'Personal trainer assigned', 'Diet & nutrition plan']
     }
 ]
+
+
+
+
+export function feeForPlan(planName) {
+    let plan = PLANS.find((p) => p.name === planName)
+    return plan 
+}
+

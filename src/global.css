@@ -102,15 +102,16 @@
     background: #1e293b;
     padding: 35px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
 }
 
 .auth-form h2 {
     margin-bottom: 8px;
+    color: #ffffff;
 }
 
 .auth-sub {
-    color: #94a3b8;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -212,7 +213,7 @@
     height: 160px;
     transition: .3s;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0,0,0,.3);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
 }
 
 .cards:hover {
@@ -242,3 +243,349 @@
     color: #94a3b8;
     font-size: 18px;
 }
+
+/* ===========================
+   Membership Details
+=========================== */
+
+.card2-container {
+    width: 100%;
+    padding: 30px;
+    background: #1b1f27;
+}
+
+.card2-container>h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* ===========================
+   Cards Container
+=========================== */
+
+.card2-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* ===========================
+   Individual Card
+=========================== */
+
+.card2-cards .card {
+    width: 320px;
+    background: #2a2f3a;
+    border: 1px solid #3b4252;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+    transition: .3s;
+}
+
+.card2-cards .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .45);
+    border-color: #2563eb;
+}
+
+/* ===========================
+   Card Heading
+=========================== */
+
+.card2-cards .card h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 28px;
+}
+
+/* ===========================
+   Fee
+=========================== */
+
+.card2-cards .card h4 {
+    text-align: center;
+    color: #4ade80;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   List
+=========================== */
+
+.card2-cards .card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card2-cards .card ul li {
+    color: #d1d5db;
+    padding: 10px 0;
+    border-bottom: 1px solid #3b4252;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card2-cards .card ul li:last-child {
+    border-bottom: none;
+}
+
+.card2-cards .card ul li::before {
+    content: "✔";
+    color: #22c55e;
+    font-weight: bold;
+}
+
+/* ===========================
+   Members Page
+=========================== */
+
+.members-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.members-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.members-header h2 {
+    color: #2563eb;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+.members-header button {
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.members-header button:hover {
+    background: #1d4ed8;
+}
+
+.members-header button a {
+    display: block;
+    padding: 12px 22px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+/* ===========================
+   Cards Container
+=========================== */
+
+.member-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+/* ===========================
+   Member Card
+=========================== */
+
+.member-card {
+    width: 340px;
+    background: #2a2f3a;
+    border: 1px solid #3d4554;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: .3s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+}
+
+.member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .45);
+}
+
+/* ===========================
+   Card Details
+=========================== */
+
+.member-card-top {
+    padding: 20px;
+}
+
+.member-card-top h3 {
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.member-card-top h4 {
+    color: #c7ced9;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.member-card-buttons {
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    background: #222831;
+    border-top: 1px solid #3d4554;
+}
+
+.member-card-buttons button {
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.member-card-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* Pay */
+.member-card-buttons button:nth-child(1) {
+    background: #16a34a;
+}
+
+/* Refund */
+.member-card-buttons button:nth-child(2) {
+    background: #f59e0b;
+}
+
+/* Upgrade */
+.member-card-buttons button:nth-child(3) {
+    background: #2563eb;
+}
+
+/* Delete */
+.member-card-buttons button:nth-child(4) {
+    background: #dc2626;
+}
+
+
+.loadingState,
+.member-card-container p {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+
+
+.member-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 20px;
+    background: #0f172a;
+}
+
+.member-form {
+    width: 100%;
+    max-width: 480px;
+    background: #1e293b;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.member-form h2 {
+    margin-bottom: 8px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+.member-sub {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 25px;
+}
+
+.member-form label {
+    display: block;
+    margin: 15px 0 6px;
+    color: white;
+    font-weight: 500;
+}
+
+.member-form input,
+.member-form select {
+    width: 100%;
+    padding: 12px;
+    background: #0f172a;
+    color: white;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.member-form input:focus,
+.member-form select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.35);
+}
+
+.member-form input[readonly] {
+    background: #172554;
+    color: #93c5fd;
+    cursor: not-allowed;
+    font-weight: 600;
+}
+
+.member-form button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.member-form button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.member-form button:active {
+    transform: scale(0.98);
+}
+
+.member-form input::placeholder {
+    color: #64748b;
+}
+
