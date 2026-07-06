@@ -18,8 +18,26 @@
       "amountPaid": 500,
       "joinedOn": "7/4/2026",
       "id": "yTiX1qh18xo"
+    },
+    {
+      "memberName": "Dhanush",
+      "memberPlan": "Elite",
+      "totalFee": 3500,
+      "amountPaid": 500,
+      "joinedOn": "7/6/2026",
+      "id": "hRH6J5m8yTQ"
     }
   ],
-  "payments": [],
+  "payments": [
+    {
+      "memberId": "hRH6J5m8yTQ",
+      "memberName": "Dhanush",
+      "type": "Payment",
+      "description": "Initial Payment",
+      "amount": 500,
+      "transaction": "7/6/2026, 10:40:52 AM",
+      "id": "n2vnxwG5Cqw"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
