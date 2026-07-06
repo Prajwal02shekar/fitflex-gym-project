@@ -15,7 +15,7 @@
       "memberName": "Dishanth",
       "memberPlan": "Basic",
       "totalFee": 1000,
-      "amountPaid": 500,
+      "amountPaid": 800,
       "joinedOn": "7/4/2026",
       "id": "yTiX1qh18xo"
     },
@@ -37,6 +37,51 @@
       "amount": 500,
       "transaction": "7/6/2026, 10:40:52 AM",
       "id": "n2vnxwG5Cqw"
+    },
+    {
+      "memberId": "yTiX1qh18xo",
+      "memberName": "Dishanth",
+      "type": "Payment",
+      "description": "Membership Payment",
+      "amount": 200,
+      "transaction": "7/6/2026, 1:47:53 PM",
+      "id": "SX9YCZcV-38"
+    },
+    {
+      "memberId": "yTiX1qh18xo",
+      "memberName": "Dishanth",
+      "type": "Payment",
+      "description": "Amount Refunded",
+      "amount": 200,
+      "transaction": "7/6/2026, 1:49:50 PM",
+      "id": "3yc3GMePh5k"
+    },
+    {
+      "memberId": "yTiX1qh18xo",
+      "memberName": "Dishanth",
+      "type": "Payment",
+      "description": "Amount Refunded",
+      "amount": 100,
+      "transaction": "7/6/2026, 1:50:23 PM",
+      "id": "sfMI_9s4ia8"
+    },
+    {
+      "memberId": "yTiX1qh18xo",
+      "memberName": "Dishanth",
+      "type": "Payment",
+      "description": "Membership Payment",
+      "amount": 1000,
+      "transaction": "7/6/2026, 1:51:27 PM",
+      "id": "jKl3PFX2L60"
+    },
+    {
+      "memberId": "yTiX1qh18xo",
+      "memberName": "Dishanth",
+      "type": "Payment",
+      "description": "Amount Refunded",
+      "amount": 600,
+      "transaction": "7/6/2026, 1:51:43 PM",
+      "id": "XGyNc4cPRmw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

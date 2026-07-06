@@ -44,7 +44,7 @@ const Members = () => {
                   members.map((m) => {
                     console.log(m, "Data is comming from backend")
                     return (
-                      <MembersCard key={m.id} member={m} />
+                      <MembersCard key={m.id} member={m}  />
                     )
                   })
                 )

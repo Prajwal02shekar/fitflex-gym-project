@@ -1,3 +1,6 @@
+/* ===========================
+   Global CSS
+=========================== */
 
 * {
     margin: 0;
@@ -8,7 +11,7 @@
 }
 
 body {
-    background: #efefef;
+    background: #f8fafc;
     color: #1e293b;
 }
 
@@ -482,6 +485,74 @@ body {
     text-align: center;
     width: 100%;
     margin-top: 40px;
+}
+
+/* ===========================
+   Inline Action Form (refund/pay/upgrade)
+=========================== */
+
+.incline-form {
+    padding: 16px 18px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.incline-form input {
+    width: 100%;
+    padding: 10px 12px;
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+}
+
+.incline-form input::placeholder {
+    color: #94a3b8;
+}
+
+.incline-form input:focus {
+    border-color: #3b82f6;
+}
+
+.incline-btns {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.incline-btns button {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Confirm button */
+.incline-btns button:nth-child(1) {
+    background: #16a34a;
+}
+
+.incline-btns button:nth-child(1):hover {
+    background: #15803d;
+}
+
+/* Reset button */
+.incline-btns button:nth-child(2) {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.incline-btns button:nth-child(2):hover {
+    background: #cbd5e1;
 }
 
 /* ===========================
