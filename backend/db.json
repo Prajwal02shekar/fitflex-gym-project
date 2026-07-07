@@ -12,76 +12,94 @@
   ],
   "members": [
     {
-      "memberName": "Dishanth",
+      "memberName": "Sakshi",
       "memberPlan": "Basic",
       "totalFee": 1000,
-      "amountPaid": 800,
-      "joinedOn": "7/4/2026",
-      "id": "yTiX1qh18xo"
+      "amountPaid": 500,
+      "joinedOn": "7/7/2026",
+      "id": "XPrv03CJQ-g"
     },
     {
-      "memberName": "Dhanush",
-      "memberPlan": "Elite",
-      "totalFee": 3500,
-      "amountPaid": 500,
-      "joinedOn": "7/6/2026",
-      "id": "hRH6J5m8yTQ"
+      "memberName": "Ashish Kumar",
+      "memberPlan": "Premium",
+      "totalFee": 2000,
+      "amountPaid": 1700,
+      "joinedOn": "7/7/2026",
+      "id": "_xlGoLCKqHg"
     }
   ],
   "payments": [
     {
-      "memberId": "hRH6J5m8yTQ",
-      "memberName": "Dhanush",
+      "memberId": "XPrv03CJQ-g",
+      "memberName": "Sakshi",
       "type": "Payment",
       "description": "Initial Payment",
       "amount": 500,
-      "transaction": "7/6/2026, 10:40:52 AM",
-      "id": "n2vnxwG5Cqw"
+      "transaction": "7/7/2026, 11:34:17 AM",
+      "id": "w2lIrkTzaTo"
     },
     {
-      "memberId": "yTiX1qh18xo",
-      "memberName": "Dishanth",
+      "memberId": "_xlGoLCKqHg",
+      "memberName": "Ashish Kumar",
+      "type": "Payment",
+      "description": "Initial Payment",
+      "amount": 500,
+      "transaction": "7/7/2026, 12:54:57 PM",
+      "id": "UOPFhsODTbo"
+    },
+    {
+      "memberId": "_xlGoLCKqHg",
+      "memberName": "Ashish Kumar",
+      "type": "Payment",
+      "description": "Membership Payment",
+      "amount": 500,
+      "transaction": "7/7/2026, 12:55:06 PM",
+      "id": "FSkPKJwqd4k"
+    },
+    {
+      "memberId": "_xlGoLCKqHg",
+      "memberName": "Ashish Kumar",
+      "type": "Refund",
+      "description": "Amount Refunded",
+      "amount": 500,
+      "transaction": "7/7/2026, 12:55:20 PM",
+      "id": "seKcGOMEHfE"
+    },
+    {
+      "memberId": "_xlGoLCKqHg",
+      "memberName": "Ashish Kumar",
+      "type": "Payment",
+      "description": "Membership Payment",
+      "amount": 1498,
+      "transaction": "7/7/2026, 1:19:42 PM",
+      "id": "e1ipxZUn7jQ"
+    },
+    {
+      "memberId": "_xlGoLCKqHg",
+      "memberName": "Ashish Kumar",
+      "type": "Payment",
+      "description": "Membership Payment",
+      "amount": 2,
+      "transaction": "7/7/2026, 1:24:02 PM",
+      "id": "4wZI5aaGGhE"
+    },
+    {
+      "memberId": "_xlGoLCKqHg",
+      "memberName": "Ashish Kumar",
+      "type": "Refund",
+      "description": "Amount Refunded",
+      "amount": 500,
+      "transaction": "7/7/2026, 1:24:11 PM",
+      "id": "7mBBP1KHq14"
+    },
+    {
+      "memberId": "_xlGoLCKqHg",
+      "memberName": "Ashish Kumar",
       "type": "Payment",
       "description": "Membership Payment",
       "amount": 200,
-      "transaction": "7/6/2026, 1:47:53 PM",
-      "id": "SX9YCZcV-38"
-    },
-    {
-      "memberId": "yTiX1qh18xo",
-      "memberName": "Dishanth",
-      "type": "Payment",
-      "description": "Amount Refunded",
-      "amount": 200,
-      "transaction": "7/6/2026, 1:49:50 PM",
-      "id": "3yc3GMePh5k"
-    },
-    {
-      "memberId": "yTiX1qh18xo",
-      "memberName": "Dishanth",
-      "type": "Payment",
-      "description": "Amount Refunded",
-      "amount": 100,
-      "transaction": "7/6/2026, 1:50:23 PM",
-      "id": "sfMI_9s4ia8"
-    },
-    {
-      "memberId": "yTiX1qh18xo",
-      "memberName": "Dishanth",
-      "type": "Payment",
-      "description": "Membership Payment",
-      "amount": 1000,
-      "transaction": "7/6/2026, 1:51:27 PM",
-      "id": "jKl3PFX2L60"
-    },
-    {
-      "memberId": "yTiX1qh18xo",
-      "memberName": "Dishanth",
-      "type": "Payment",
-      "description": "Amount Refunded",
-      "amount": 600,
-      "transaction": "7/6/2026, 1:51:43 PM",
-      "id": "XGyNc4cPRmw"
+      "transaction": "7/7/2026, 1:24:18 PM",
+      "id": "x0QwpezvURQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

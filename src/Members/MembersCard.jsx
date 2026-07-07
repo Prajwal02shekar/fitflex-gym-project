@@ -2,11 +2,13 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { feeForPlan, PLANS } from '../utils/Plans'
 
 const MembersCard = ({ member }) => {
     let [action, setAction] = useState(null);
     let [amount, setAmount] = useState('')
     let [description, setDescription] = useState('')
+    let [newPlan, setNewPlan] = useState(member.memberPlan)
     let navigate = useNavigate();
 
     let hanldePay = async () => {
@@ -51,7 +53,7 @@ const MembersCard = ({ member }) => {
         await axios.post('http://localhost:3000/payments', {
             memberId: member.id,
             memberName: member.memberName,
-            type: "Payment",
+            type: "Refund",
             description: description || "Amount Refunded",
             amount: value,
             transaction: new Date().toLocaleString()
@@ -59,9 +61,7 @@ const MembersCard = ({ member }) => {
 
         setAmount("")
         setDescription("")
-        onChanged()
         toast.success("Refund Success")
-        onChanged()
         setTimeout(() => {
             navigate('/members')
         }, 1000)
@@ -71,7 +71,51 @@ const MembersCard = ({ member }) => {
         setAction(null)
         setAction("")
         setDescription("")
-        onChanged()
+    }
+
+    let handleUpgrade = async () => {
+        if (newPlan === member.memberPlan) {
+            toast.error("Select a differnt plan")
+            return
+        }
+        let updatedFee = feeForPlan(newPlan);
+        await axios.patch(`http://localhost:3000/members/${member.id}`, {
+            totalFee: updatedFee,
+            memberPlan: newPlan
+        })
+        toast.success(`Plan upgraded to ${newPlan}`)
+        handleReset();
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000)
+    }
+
+    let handleDelete = async () => {
+        let confirmation = window.confirm(`Remove ${member.memberName} deletes complete details including payment history and ptrequests`)
+
+        if (!confirmation) return
+
+        try {
+            let paymentRes = await axios.get('http://localhost:3000/payments')
+            console.log(paymentRes)
+
+            let reletedPayments = paymentRes.data.filter((f) => f.memberId === member.id)
+            console.log(reletedPayments)
+
+            for (let p of reletedPayments) {
+                await axios.delete(`http://localhost:3000/payments/${p.id}`)
+            }
+
+            await axios.delete(`http://localhost:3000/members/${member.id}`)
+
+            toast.success("Member Deleted")
+            handleReset();
+            setTimeout(() => {
+                window.location.reload()
+            }, 1000)
+        } catch (err) {
+            console.log(err)
+        }
     }
     console.log(member, "Members Card")
 
@@ -111,6 +155,40 @@ const MembersCard = ({ member }) => {
                         <input type="text" id='description' name='description' placeholder='(Optional)' />
                         <div className="incline-btns">
                             <button onClick={handleRefund}>Confirm Refund</button>
+                            <button onClick={handleReset}>Reset</button>
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                action === "upgradePlan" && (
+                    <div className="incline-form">
+                        <select name="plan" id="plan" value={newPlan} onChange={(e) => setNewPlan(e.target.value)} >
+                            {
+                                PLANS.map((p) => {
+                                    return (
+                                        <option key={p.name} value={p.name}>{p.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                        <div className="incline-btns">
+                            <button onClick={handleUpgrade}>Confirm Upgrade</button>
+                            <button onClick={handleReset}>Reset</button>
+                        </div>
+                    </div>
+                )
+            }
+
+
+            {
+                action === "delete" && (
+                    <div className="incline-form">
+                        <p>This Action will delete a member details incluing Payment and PT Requests</p>
+
+                        <div className="incline-btns">
+                            <button onClick={handleDelete}>Confirm Delete</button>
                             <button onClick={handleReset}>Reset</button>
                         </div>
                     </div>
