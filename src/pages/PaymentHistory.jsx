@@ -38,12 +38,11 @@ const PaymentHistory = () => {
     <section className="payment-container">
       <h2>Payment History</h2>
 
-
       <aside className="payment-summary">
 
         <div className="payment-card">
           <span className="card-label">Total Income</span>
-          <span className="card-value">₹ {totalIncome+TotalOutcome} /-</span>
+          <span className="card-value">₹ {totalIncome + TotalOutcome} /-</span>
         </div>
         <div className="payment-card">
           <span className="card-label">Total Refund</span>

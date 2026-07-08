@@ -26,6 +26,14 @@
       "amountPaid": 1700,
       "joinedOn": "7/7/2026",
       "id": "_xlGoLCKqHg"
+    },
+    {
+      "memberName": "Chetan",
+      "memberPlan": "Premium",
+      "totalFee": 2000,
+      "amountPaid": 1500,
+      "joinedOn": "7/8/2026",
+      "id": "IZSa1yJanyg"
     }
   ],
   "payments": [
@@ -100,6 +108,44 @@
       "amount": 200,
       "transaction": "7/7/2026, 1:24:18 PM",
       "id": "x0QwpezvURQ"
+    },
+    {
+      "memberId": "IZSa1yJanyg",
+      "memberName": "Chetan",
+      "type": "Payment",
+      "description": "Initial Payment",
+      "amount": 1500,
+      "transaction": "7/8/2026, 11:27:15 AM",
+      "id": "9Dh9JkNDUHM"
+    }
+  ],
+  "ptRequest": [
+    {
+      "memberId": "Chetan - IZSa1yJanyg",
+      "trainerPreference": "Strength Training",
+      "slot": "Night [7-9 PM]",
+      "goal": "Weight Gain",
+      "status": "APPROVED",
+      "date": "7/8/2026",
+      "id": "pMlxYxIp35k"
+    },
+    {
+      "memberId": "Sakshi - XPrv03CJQ-g",
+      "trainerPreference": "Strength Training",
+      "slot": "Night [7-9 PM]",
+      "goal": "Weight Gain",
+      "status": "REJECT",
+      "date": "7/8/2026",
+      "id": "Fa1VaOqYcio"
+    },
+    {
+      "memberId": "Ashish Kumar - _xlGoLCKqHg",
+      "trainerPreference": "Weight Loss",
+      "slot": "Afternoon [12-2 PM]",
+      "goal": "Fat loss",
+      "status": "APPROVED",
+      "date": "7/8/2026",
+      "id": "af_G4B-Z958"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
