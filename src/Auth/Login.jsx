@@ -13,21 +13,31 @@ const Login = () => {
   let handleSubmit = async (e) => {
     e.preventDefault();
 
-    let res = await axios.get('http://localhost:3000/register')
-    console.log(res)
-    let user = await res.data.find((u) => u.email === email && u.password === password)
-    console.log(user)
+    // let res = await axios.get('http://localhost:3000/register')
+    // console.log(res)
+    // let user = await res.data.find((u) => u.email === email && u.password === password)
+    // console.log(user)
 
-
-    if (user) {
-      localStorage.setItem('user',JSON.stringify(user))
-      toast.success(`Welcome Back ${user.username}`)
+    if (email === "admin@fitflex.com" && password === "admin123") {
+      localStorage.setItem('user', JSON.stringify("Admin"))
+      toast.success(`Welcome Back "Admin`)
       setTimeout(() => {
         navigate('/')
       }, 2000)
     } else {
       toast.error("Something went wrong")
     }
+
+
+    // if (user) {
+    //   localStorage.setItem('user',JSON.stringify(user))
+    //   toast.success(`Welcome Back ${user.username}`)
+    //   setTimeout(() => {
+    //     navigate('/')
+    //   }, 2000)
+    // } else {
+    //   toast.error("Something went wrong")
+    // }
 
   }
 

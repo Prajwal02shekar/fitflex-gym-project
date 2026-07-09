@@ -30,7 +30,7 @@ const Navbar = () => {
                 {
                     user ? (
                         <div className='userData'>
-                            <span>Hai, {user.username}</span>
+                            <span>Hai, Admin</span>
                             <button onClick={handleLogout}>Logout</button>
                         </div>
                     ) : (

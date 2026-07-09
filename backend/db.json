@@ -12,14 +12,6 @@
   ],
   "members": [
     {
-      "memberName": "Sakshi",
-      "memberPlan": "Basic",
-      "totalFee": 1000,
-      "amountPaid": 500,
-      "joinedOn": "7/7/2026",
-      "id": "XPrv03CJQ-g"
-    },
-    {
       "memberName": "Ashish Kumar",
       "memberPlan": "Premium",
       "totalFee": 2000,
@@ -34,18 +26,17 @@
       "amountPaid": 1500,
       "joinedOn": "7/8/2026",
       "id": "IZSa1yJanyg"
+    },
+    {
+      "memberName": "Dishanth",
+      "memberPlan": "Premium",
+      "totalFee": 2000,
+      "amountPaid": 1500,
+      "joinedOn": "7/9/2026",
+      "id": "gVwhTYhzek8"
     }
   ],
   "payments": [
-    {
-      "memberId": "XPrv03CJQ-g",
-      "memberName": "Sakshi",
-      "type": "Payment",
-      "description": "Initial Payment",
-      "amount": 500,
-      "transaction": "7/7/2026, 11:34:17 AM",
-      "id": "w2lIrkTzaTo"
-    },
     {
       "memberId": "_xlGoLCKqHg",
       "memberName": "Ashish Kumar",
@@ -146,6 +137,15 @@
       "status": "APPROVED",
       "date": "7/8/2026",
       "id": "af_G4B-Z958"
+    },
+    {
+      "memberId": "Dishanth - gVwhTYhzek8",
+      "trainerPreference": "Yoga",
+      "slot": "Afternoon [12-2 PM]",
+      "goal": "Weight Gain",
+      "status": "APPROVED",
+      "date": "7/9/2026",
+      "id": "XI8R3uo1i8U"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

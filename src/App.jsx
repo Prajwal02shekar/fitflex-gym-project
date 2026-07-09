@@ -9,6 +9,8 @@ import Register from './Auth/Register'
 import PaymentHistory from './pages/PaymentHistory'
 import { ToastContainer } from 'react-toastify'
 import CreateMember from './Members/CreateMember'
+import PrivateRoute from './utils/PrivateRoute'
+import PageNotFound from './pages/PageNotFound'
 
 const App = () => {
     let router = createBrowserRouter([
@@ -22,7 +24,11 @@ const App = () => {
                 },
                 {
                     path: "/members",
-                    element: <Members />,
+                    element: (
+                        <PrivateRoute>
+                            <Members />
+                        </PrivateRoute>
+                    ),
                     children: [
                         {
                             path: "/members/addMembers",
@@ -32,11 +38,19 @@ const App = () => {
                 },
                 {
                     path: "/payment",
-                    element: <PaymentHistory />
+                    element: (
+                        <PrivateRoute>
+                            <PaymentHistory />
+                        </PrivateRoute>
+                    )
                 },
                 {
                     path: "/personTraining",
-                    element: <PTRequest />
+                    element: (
+                        <PrivateRoute>
+                            <PTRequest />
+                        </PrivateRoute>
+                    )
                 },
                 {
                     path: "/login",
@@ -45,6 +59,11 @@ const App = () => {
                 {
                     path: "/register",
                     element: <Register />
+                },
+                ,
+                {
+                    path: "/*",
+                    element: <PageNotFound />
                 },
 
             ]
