@@ -74,9 +74,10 @@ npm install
 
 **Step 2 — Start JSON Server (REST API backend) in Terminal 1:**
 ```bash
-npm run server
+cd backend
+npx json-server db.json --watch port=3000
 ```
-Runs at `http://localhost:3001`
+Runs at `http://localhost:3000`
 
 **Step 3 — Start React dev server in Terminal 2:**
 ```bash
@@ -109,8 +110,8 @@ Or register a new account from `/register`.
 | POST | `/members` | Add a member |
 | PATCH | `/members/:id` | Pay / Refund / Upgrade plan |
 | DELETE | `/members/:id` | Remove a member |
-| GET | `/payments?_sort=date&_order=desc` | Payment history |
+| GET | `/payments` | Payment history |
 | POST | `/payments` | Record a payment or refund |
-| GET | `/ptRequests?_sort=requestDate&_order=desc` | PT request list |
+| GET | `/ptRequests` | PT request list |
 | POST | `/ptRequests` | Submit a PT request |
 | PATCH | `/ptRequests/:id` | Approve or reject a request |

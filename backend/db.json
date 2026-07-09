@@ -12,42 +12,25 @@
   ],
   "members": [
     {
-      "memberName": "Ashish Kumar",
-      "memberPlan": "Premium",
-      "totalFee": 2000,
-      "amountPaid": 1700,
-      "joinedOn": "7/7/2026",
-      "id": "_xlGoLCKqHg"
-    },
-    {
-      "memberName": "Chetan",
-      "memberPlan": "Premium",
-      "totalFee": 2000,
-      "amountPaid": 1500,
-      "joinedOn": "7/8/2026",
-      "id": "IZSa1yJanyg"
-    },
-    {
       "memberName": "Dishanth",
       "memberPlan": "Premium",
       "totalFee": 2000,
       "amountPaid": 1500,
       "joinedOn": "7/9/2026",
       "id": "gVwhTYhzek8"
+    },
+    {
+      "memberName": "Sakshi",
+      "memberPlan": "Premium",
+      "totalFee": 2000,
+      "amountPaid": 1300,
+      "joinedOn": "7/9/2026",
+      "id": "two4mq4Bni8"
     }
   ],
   "payments": [
     {
-      "memberId": "_xlGoLCKqHg",
-      "memberName": "Ashish Kumar",
-      "type": "Payment",
-      "description": "Initial Payment",
-      "amount": 500,
-      "transaction": "7/7/2026, 12:54:57 PM",
-      "id": "UOPFhsODTbo"
-    },
-    {
-      "memberId": "_xlGoLCKqHg",
+      "memberId": null,
       "memberName": "Ashish Kumar",
       "type": "Payment",
       "description": "Membership Payment",
@@ -56,58 +39,49 @@
       "id": "FSkPKJwqd4k"
     },
     {
-      "memberId": "_xlGoLCKqHg",
-      "memberName": "Ashish Kumar",
-      "type": "Refund",
-      "description": "Amount Refunded",
-      "amount": 500,
-      "transaction": "7/7/2026, 12:55:20 PM",
-      "id": "seKcGOMEHfE"
-    },
-    {
-      "memberId": "_xlGoLCKqHg",
-      "memberName": "Ashish Kumar",
-      "type": "Payment",
-      "description": "Membership Payment",
-      "amount": 1498,
-      "transaction": "7/7/2026, 1:19:42 PM",
-      "id": "e1ipxZUn7jQ"
-    },
-    {
-      "memberId": "_xlGoLCKqHg",
-      "memberName": "Ashish Kumar",
-      "type": "Payment",
-      "description": "Membership Payment",
-      "amount": 2,
-      "transaction": "7/7/2026, 1:24:02 PM",
-      "id": "4wZI5aaGGhE"
-    },
-    {
-      "memberId": "_xlGoLCKqHg",
-      "memberName": "Ashish Kumar",
-      "type": "Refund",
-      "description": "Amount Refunded",
-      "amount": 500,
-      "transaction": "7/7/2026, 1:24:11 PM",
-      "id": "7mBBP1KHq14"
-    },
-    {
-      "memberId": "_xlGoLCKqHg",
-      "memberName": "Ashish Kumar",
-      "type": "Payment",
-      "description": "Membership Payment",
-      "amount": 200,
-      "transaction": "7/7/2026, 1:24:18 PM",
-      "id": "x0QwpezvURQ"
-    },
-    {
-      "memberId": "IZSa1yJanyg",
-      "memberName": "Chetan",
+      "memberId": "two4mq4Bni8",
+      "memberName": "Sakshi",
       "type": "Payment",
       "description": "Initial Payment",
-      "amount": 1500,
-      "transaction": "7/8/2026, 11:27:15 AM",
-      "id": "9Dh9JkNDUHM"
+      "amount": 500,
+      "transaction": "7/9/2026, 1:35:52 PM",
+      "id": "_k6bP0QrSkE"
+    },
+    {
+      "memberId": "two4mq4Bni8",
+      "memberName": "Sakshi",
+      "type": "Payment",
+      "description": "Membership Payment",
+      "amount": 1000,
+      "transaction": "7/9/2026, 1:36:12 PM",
+      "id": "kMYLQrJqgDo"
+    },
+    {
+      "memberId": "two4mq4Bni8",
+      "memberName": "Sakshi",
+      "type": "Refund",
+      "description": "Amount Refunded",
+      "amount": 500,
+      "transaction": "7/9/2026, 1:36:24 PM",
+      "id": "vKXN-Ll6Hwo"
+    },
+    {
+      "memberId": "two4mq4Bni8",
+      "memberName": "Sakshi",
+      "type": "Payment",
+      "description": "Membership Payment",
+      "amount": 500,
+      "transaction": "7/9/2026, 1:47:20 PM",
+      "id": "1jOCIO0ArT4"
+    },
+    {
+      "memberId": "two4mq4Bni8",
+      "memberName": "Sakshi",
+      "type": "Refund",
+      "description": "Amount Refunded",
+      "amount": 200,
+      "transaction": "7/9/2026, 1:49:30 PM",
+      "id": "NFiDRQIcs4A"
     }
   ],
   "ptRequest": [
@@ -146,6 +120,15 @@
       "status": "APPROVED",
       "date": "7/9/2026",
       "id": "XI8R3uo1i8U"
+    },
+    {
+      "memberId": "Sakshi - two4mq4Bni8",
+      "trainerPreference": "Yoga",
+      "slot": "Morning [6-8 AM]",
+      "goal": "Fit Body",
+      "status": "APPROVED",
+      "date": "7/9/2026",
+      "id": "5-RVL7H0Ta8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

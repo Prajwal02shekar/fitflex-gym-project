@@ -19,58 +19,71 @@ const MembersCard = ({ member }) => {
             return
         }
 
-        let updatedPaid = Number(member.amountPaid) + value;
+        try {
+            let updatedPaid = Number(member.amountPaid) + value;
 
-        await axios.patch(`http://localhost:3000/members/${member.id}`, {
-            amountPaid: updatedPaid
-        })
+            await axios.patch(`http://localhost:3000/members/${member.id}`, {
+                amountPaid: updatedPaid
+            })
 
-        await axios.post('http://localhost:3000/payments', {
-            memberId: member.id,
-            memberName: member.memberName,
-            type: "Payment",
-            description: description || "Membership Payment",
-            amount: value,
-            transaction: new Date().toLocaleString()
-        })
-
-        setAmount("")
-        setDescription("")
-        toast.success("Payment Recorded")
-        setTimeout(() => {
-            navigate('/members')
-        }, 1000)
+            await axios.post('http://localhost:3000/payments', {
+                memberId: member.id,
+                memberName: member.memberName,
+                type: "Payment",
+                description: description || "Membership Payment",
+                amount: value,
+                transaction: new Date().toLocaleString()
+            })
+            handleReset()
+            toast.success("Amount Paid")
+        } catch {
+            toast.error("Unable to Proceed")
+        }
     }
     let handleRefund = async () => {
         let value = Number(amount);
 
+        if (!value || value <= 0) {
+            toast.error("Enter valid amount");
+            return;
+        }
+
         let updatedPaid = Number(member.amountPaid) - value;
 
-        await axios.patch(`http://localhost:3000/members/${member.id}`, {
-            amountPaid: updatedPaid
-        })
+        if (updatedPaid < 0) {
+            toast.error("Refund amount exceeds paid amount");
+            return;
+        }
 
-        await axios.post('http://localhost:3000/payments', {
-            memberId: member.id,
-            memberName: member.memberName,
-            type: "Refund",
-            description: description || "Amount Refunded",
-            amount: value,
-            transaction: new Date().toLocaleString()
-        })
+        try {
+            await axios.patch(`http://localhost:3000/members/${member.id}`, {
+                amountPaid: updatedPaid
+            });
 
-        setAmount("")
-        setDescription("")
-        toast.success("Refund Success")
-        setTimeout(() => {
-            navigate('/members')
-        }, 1000)
-    }
+            await axios.post("http://localhost:3000/payments", {
+                memberId: member.id,
+                memberName: member.memberName,
+                type: "Refund",
+                description: description || "Amount Refunded",
+                amount: value,
+                transaction: new Date().toLocaleString()
+            });
+
+            toast.success("Refund Successful");
+            handleReset();
+
+        } catch {
+            toast.error("Unable to Proceed");
+        }
+    };
 
     let handleReset = () => {
         setAction(null)
         setAction("")
         setDescription("")
+        setTimeout(() => {
+            window.location.reload();
+        }, 800);
     }
 
     let handleUpgrade = async () => {
@@ -78,16 +91,17 @@ const MembersCard = ({ member }) => {
             toast.error("Select a differnt plan")
             return
         }
-        let updatedFee = feeForPlan(newPlan);
-        await axios.patch(`http://localhost:3000/members/${member.id}`, {
-            totalFee: updatedFee,
-            memberPlan: newPlan
-        })
-        toast.success(`Plan upgraded to ${newPlan}`)
-        handleReset();
-        setTimeout(() => {
-            window.location.reload();
-        }, 1000)
+        try {
+            let updatedFee = feeForPlan(newPlan);
+            await axios.patch(`http://localhost:3000/members/${member.id}`, {
+                totalFee: updatedFee,
+                memberPlan: newPlan
+            })
+            toast.success(`Plan upgraded to ${newPlan}`)
+            handleReset();
+        } catch {
+            toast.error("Unable to Proceed")
+        }
     }
 
     let handleDelete = async () => {
@@ -110,11 +124,8 @@ const MembersCard = ({ member }) => {
 
             toast.success("Member Deleted")
             handleReset();
-            setTimeout(() => {
-                window.location.reload()
-            }, 1000)
-        } catch (err) {
-            console.log(err)
+        } catch {
+            toast.error("Unable to Delete")
         }
     }
     console.log(member, "Members Card")

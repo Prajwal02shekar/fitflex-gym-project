@@ -28,26 +28,27 @@ const PTRequest = () => {
       return;
     }
 
+    try {
+      let newRequest = await axios.post('http://localhost:3000/ptRequest', {
+        memberId: formData.memberId,
+        trainerPreference: formData.trainerPreference,
+        slot: formData.slot,
+        goal: formData.goal,
+        status: "PENDING",
+        date: new Date().toLocaleDateString()
+      })
 
-
-
-    let newRequest = await axios.post('http://localhost:3000/ptRequest', {
-      memberId: formData.memberId,
-      trainerPreference: formData.trainerPreference,
-      slot: formData.slot,
-      goal: formData.goal,
-      status: "PENDING",
-      date: new Date().toLocaleDateString()
-    })
-
-    toast.success("Request Sent")
-    setFormData({
-      memberId: "",
-      trainerPreference: "",
-      slot: "Any Available Slot",
-      goal: ""
-    })
-    showForm(false)
+      toast.success("Request Sent")
+      setFormData({
+        memberId: "",
+        trainerPreference: "",
+        slot: "Any Available Slot",
+        goal: ""
+      })
+      setShowForm(false)
+    } catch {
+      toast.error("Unable to Proceed")
+    }
 
   }
 
@@ -71,12 +72,16 @@ const PTRequest = () => {
         setLoading(false)
       })
   }
-  let handleStatus = async(id,newStatus) => {
+  let handleStatus = async (id, newStatus) => {
 
-    await axios.patch(`http://localhost:3000/ptRequest/${id}`,{
-      status:newStatus
-    })
-    toast.success("Status Updated")
+    try {
+      await axios.patch(`http://localhost:3000/ptRequest/${id}`, {
+        status: newStatus
+      })
+      toast.success("Status Updated")
+    } catch {
+      toast.error("Unable to proceed")
+    }
   }
   useEffect(() => {
     loadData()
@@ -90,35 +95,45 @@ const PTRequest = () => {
       {
         showForm && (
           <form onSubmit={handleSubmit}>
-            <label htmlFor="memberId">Member ID</label>
-            <select name="memberId" id="memberId" onChange={hanldeChange}>
-              {
-                members.map((m) => {
-                  return (
-                    <option key={m.memberId} value={m.memberId}>{m.memberName} - {m.id}</option>
-                  )
-                })
-              }
-            </select>
-            <label htmlFor="trainerPreference">Trainer Preference</label>
-            <select name="trainerPreference" id="trainerPreference" onChange={hanldeChange}>
-              <option value="Weight Gain">Weight Gain</option>
-              <option value="Weight Loss">Weight Loss</option>
-              <option value="Cardio">Cardio</option>
-              <option value="Yoga">Yoga</option>
-              <option value="Strength Training">Strength Training</option>
-            </select>
-            <label htmlFor="slot">Slot</label>
-            <select name="slot" id="slot" onChange={hanldeChange}>
-              <option value="">Any Available Slot </option>
-              <option value="Morning [6-8 AM]">Morning [6-8 AM]</option>
-              <option value="Afternoon [12-2 PM]">Afternoon [12-2 PM]</option>
-              <option value="Evening [6-8 PM]">Evening [6-8 PM]</option>
-              <option value="Night [7-9 PM]">Night [7-9 PM]</option>
-            </select>
+            <div className="pt-field">
+              <label htmlFor="memberId">Member ID</label>
+              <select name="memberId" id="memberId" onChange={hanldeChange}>
+                {
+                  members.map((m) => {
+                    return (
+                      <option key={m.memberId} value={m.memberId}>{m.memberName} - {m.id}</option>
+                    )
+                  })
+                }
+              </select>
+            </div>
 
-            <label htmlFor="goal">Goal</label>
-            <input type="text" id='goal' onChange={hanldeChange} placeholder='eg: Weight Loss , Weight Gain' name='goal' />
+            <div className="pt-field">
+              <label htmlFor="trainerPreference">Trainer Preference</label>
+              <select name="trainerPreference" id="trainerPreference" onChange={hanldeChange}>
+                <option value="Weight Gain">Weight Gain</option>
+                <option value="Weight Loss">Weight Loss</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Strength Training">Strength Training</option>
+              </select>
+            </div>
+
+            <div className="pt-field">
+              <label htmlFor="slot">Slot</label>
+              <select name="slot" id="slot" onChange={hanldeChange}>
+                <option value="">Any Available Slot </option>
+                <option value="Morning [6-8 AM]">Morning [6-8 AM]</option>
+                <option value="Afternoon [12-2 PM]">Afternoon [12-2 PM]</option>
+                <option value="Evening [6-8 PM]">Evening [6-8 PM]</option>
+                <option value="Night [7-9 PM]">Night [7-9 PM]</option>
+              </select>
+            </div>
+
+            <div className="pt-field">
+              <label htmlFor="goal">Goal</label>
+              <input type="text" id='goal' onChange={hanldeChange} placeholder='eg: Weight Loss , Weight Gain' name='goal' />
+            </div>
 
             <button>Submit Request</button>
           </form>
@@ -141,7 +156,7 @@ const PTRequest = () => {
           {
             ptRequets.map((p) => {
               return (
-                <tr>
+                <tr key={p.id}>
                   <td>{p.id}</td>
                   <td>{p.memberId}</td>
                   <td>{p.trainerPreference}</td>
@@ -150,8 +165,8 @@ const PTRequest = () => {
                   <td>{
                     p.status === "PENDING" ? (
                       <>
-                        <button onClick={()=>handleStatus(p.id,"APPROVED") }>APPROVE</button>
-                        <button onClick={()=>handleStatus(p.id,"REJECT") }>REJECT</button>
+                        <button onClick={() => handleStatus(p.id, "APPROVED")}>APPROVE</button>
+                        <button onClick={() => handleStatus(p.id, "REJECT")}>REJECT</button>
                       </>
 
                     ) : p.status === "APPROVED" ? (
