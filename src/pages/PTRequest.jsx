@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import api from '../utils/api'
 
 const PTRequest = () => {
 
@@ -29,7 +30,7 @@ const PTRequest = () => {
     }
 
     try {
-      let newRequest = await axios.post('http://localhost:3000/ptRequest', {
+      let newRequest = await api.post('/ptRequest', {
         memberId: formData.memberId,
         trainerPreference: formData.trainerPreference,
         slot: formData.slot,
@@ -54,7 +55,7 @@ const PTRequest = () => {
 
   let loadData = async () => {
     setLoading(true)
-    await axios.get('http://localhost:3000/members')
+    await api.get('/members')
       .then((res) => {
         setMembers(res.data)
       }).catch(() => {
@@ -63,7 +64,7 @@ const PTRequest = () => {
         setLoading(false)
       })
 
-    await axios.get('http://localhost:3000/ptRequest')
+    await api.get('/ptRequest')
       .then((res) => {
         setPtRequest(res.data)
       }).catch(() => {
@@ -75,7 +76,7 @@ const PTRequest = () => {
   let handleStatus = async (id, newStatus) => {
 
     try {
-      await axios.patch(`http://localhost:3000/ptRequest/${id}`, {
+      await api.patch(`/ptRequest/${id}`, {
         status: newStatus
       })
       toast.success("Status Updated")

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
+import api from '../utils/api';
 
 const PaymentHistory = () => {
 
@@ -10,7 +11,7 @@ const PaymentHistory = () => {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3000/payments')
+    api.get('/payments')
       .then((res) => {
         setLoading(true)
         setPayments(res.data)

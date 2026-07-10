@@ -1,8 +1,8 @@
-import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { feeForPlan, PLANS } from '../utils/Plans'
+import api from '../utils/api';
 
 const MembersCard = ({ member }) => {
     let [action, setAction] = useState(null);
@@ -22,11 +22,11 @@ const MembersCard = ({ member }) => {
         try {
             let updatedPaid = Number(member.amountPaid) + value;
 
-            await axios.patch(`http://localhost:3000/members/${member.id}`, {
+            await api.patch(`/members/${member.id}`, {
                 amountPaid: updatedPaid
             })
 
-            await axios.post('http://localhost:3000/payments', {
+            await api.post('/payments', {
                 memberId: member.id,
                 memberName: member.memberName,
                 type: "Payment",
@@ -56,11 +56,11 @@ const MembersCard = ({ member }) => {
         }
 
         try {
-            await axios.patch(`http://localhost:3000/members/${member.id}`, {
+            await api.patch(`/members/${member.id}`, {
                 amountPaid: updatedPaid
             });
 
-            await axios.post("http://localhost:3000/payments", {
+            await api.post("/payments", {
                 memberId: member.id,
                 memberName: member.memberName,
                 type: "Refund",
@@ -93,7 +93,7 @@ const MembersCard = ({ member }) => {
         }
         try {
             let updatedFee = feeForPlan(newPlan);
-            await axios.patch(`http://localhost:3000/members/${member.id}`, {
+            await api.patch(`/members/${member.id}`, {
                 totalFee: updatedFee,
                 memberPlan: newPlan
             })
@@ -110,17 +110,17 @@ const MembersCard = ({ member }) => {
         if (!confirmation) return
 
         try {
-            let paymentRes = await axios.get('http://localhost:3000/payments')
+            let paymentRes = await api.get('/payments')
             console.log(paymentRes)
 
             let reletedPayments = paymentRes.data.filter((f) => f.memberId === member.id)
             console.log(reletedPayments)
 
             for (let p of reletedPayments) {
-                await axios.delete(`http://localhost:3000/payments/${p.id}`)
+                await api.delete(`/payments/${p.id}`)
             }
 
-            await axios.delete(`http://localhost:3000/members/${member.id}`)
+            await api.delete(`/members/${member.id}`)
 
             toast.success("Member Deleted")
             handleReset();

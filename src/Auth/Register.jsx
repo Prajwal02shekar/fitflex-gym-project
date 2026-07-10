@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import api from '../utils/api'
 
 const Register = () => {
 
@@ -24,14 +25,14 @@ const Register = () => {
     console.log(formData)
 
     try {
-      let exisiting = await axios.get('http://localhost:3000/register')
+      let exisiting = await api.get('/register')
       if (exisiting.data.some((item) => item.email === formData.email)) {
         toast.error("This Email already Registered")
         return
       }
 
 
-      axios.post('http://localhost:3000/register', formData)
+      api.post('/register', formData)
       toast.success("Account Created --Please Login")
       setFormData({
         username: "",

@@ -129,6 +129,15 @@
       "status": "APPROVED",
       "date": "7/9/2026",
       "id": "5-RVL7H0Ta8"
+    },
+    {
+      "memberId": "Sakshi - two4mq4Bni8",
+      "trainerPreference": "Yoga",
+      "slot": "Night [7-9 PM]",
+      "goal": "Weight Gain",
+      "status": "PENDING",
+      "date": "7/10/2026",
+      "id": "KGxc3FEqS8c"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

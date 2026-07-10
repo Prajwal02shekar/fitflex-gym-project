@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import MembersCard from '../Members/MembersCard'
 import { toast } from 'react-toastify'
+import api from '../utils/api'
 
 const Members = () => {
 
@@ -13,7 +14,7 @@ const Members = () => {
   let loadMembers = async () => {
 
     setLoading(false)
-    axios.get('http://localhost:3000/members')
+    api.get('/members')
       .then((res) => {
         console.log(res.data)
         setMembers(res.data)

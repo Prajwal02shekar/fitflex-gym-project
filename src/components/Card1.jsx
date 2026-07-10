@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import api from '../utils/api'
 
 const Card1 = () => {
     let [stats, setStats] = useState({
@@ -8,28 +9,21 @@ const Card1 = () => {
         ptRequests: 0
     })
 
-
     let loadData = async () => {
-
-        let members = await axios.get('http://localhost:3000/members')
-
+        let members = await api.get('/members')
         console.log(members)
-
-
-        let payments = await axios.get('http://localhost:3000/payments')
+        let payments = await api.get('/payments')
         console.log(payments.data)
 
         let totalIncome = payments.data.filter((p) => p.type === "Payment").reduce((sum, ele) => sum + Number(ele.amount), 0)
         console.log(totalIncome)
 
-
-        let pendingRequests = await axios.get('http://localhost:3000/ptRequest')
+        let pendingRequests = await api.get('/ptRequest')
         console.log(pendingRequests)
 
         let pendingReq = pendingRequests.data.filter((p)=>p.status==="PENDING").length
         console.log(pendingReq)
         // console.log(pendingReq)
-
 
         setStats({
             membersAvavilable: members.data.length,

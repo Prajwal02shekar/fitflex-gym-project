@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { PLANS, feeForPlan } from '../utils/Plans'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import api from '../utils/api'
 
 const CreateMember = () => {
 
@@ -31,7 +31,7 @@ const CreateMember = () => {
             console.log(totalFee)
             console.log(amountPaid)
 
-            let newMember = await axios.post('http://localhost:3000/members', {
+            let newMember = await api.post('/members', {
                 memberName: formData.memberName,
                 memberPlan: formData.memberPlan,
                 totalFee,
@@ -40,7 +40,7 @@ const CreateMember = () => {
             })
 
             if (amountPaid > 0) {
-                await axios.post('http://localhost:3000/payments', {
+                await api.post('/payments', {
                     memberId: newMember.data.id,
                     memberName: formData.memberName,
                     type: "Payment",
